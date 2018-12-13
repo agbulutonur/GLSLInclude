@@ -1,12 +1,17 @@
 import os
 
-moduleFileList = os.listdir("./util")
-moduleMap = {}
 
-for file in moduleFileList:
-    name = file[:file.index(".glsl")]
-    f = open("./util/" + file, "r")
-    moduleMap[name] = f.read()
-    f.close()
+def load_modules(module_files):
+    moduleMap = {}
+    for file in module_files:
+        name = file[:file.index(".glsl")]
+        f = open("./util/" + file, "r")
+        moduleMap[name] = f.read()
+        f.close()
 
-print(moduleMap)
+    return moduleMap
+
+
+if __name__ == "__main__":
+    moduleFileList = os.listdir("./util")
+    moduleMap = loadModules(moduleFileList)
