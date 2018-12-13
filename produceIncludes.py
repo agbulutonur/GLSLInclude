@@ -37,5 +37,3 @@ if __name__ == "__main__":
                     print(m.group(1), moduleMap[module])
                 newFile.write(line)
             newFile.close()
-
-    print(shaderList)
