@@ -5,54 +5,55 @@ import sys
 import getopt
 
 
-def getOptionVars():
-    baseDirectory = "."
-    baseModuleDirectory = "./util"
+def get_option_vars():
+    base_dir = "."
+    module_dir = "./util"
 
     options, remainder = getopt.getopt(sys.argv[1:], 'o:v', [ 'base=', 'module=' ])
 
     for opt, arg in options:
         if opt == "--base":
-            baseDirectory = arg
+            base_dir = arg
         if opt == "--module":
-            baseModuleDirectory = arg
+            module_dir = arg
 
-    return baseDirectory, baseModuleDirectory
+    return base_dir, module_dir
 
 
-def load_modules(module_files, dir):
-    moduleMap = {}
+def load_modules(module_files, directory):
+    modules = {}
     for file in module_files:
         name = file[:file.index(".glsl")]
-        f = open(os.path.normpath(dir + "/" + file), "r")
-        moduleMap[name] = f.read()
+        f = open(os.path.normpath(directory + "/" + file), "r")
+        modules[name] = f.read()
         f.close()
 
-    return moduleMap
+    return modules
 
 
 if __name__ == "__main__":
 
-    baseDirectory, baseModuleDirectory = getOptionVars()
+    baseDirectory, baseModuleDirectory = get_option_vars()
 
     moduleFileList = os.listdir(baseModuleDirectory)
-    moduleMap = load_modules(moduleFileList, baseModuleDirectory)
+    modulesMap = load_modules(moduleFileList, baseModuleDirectory)
 
     outputFile = "output"
     pathlib.Path(outputFile).mkdir(exist_ok=True)
 
     fileList = os.listdir()
     shaderList = [f for f in fileList if f.endswith(".glsl")]
-    regex_word="\#include\s+(.*)$"
+    regexWord = "\#include\s+(.*)$"
+
     for shader in shaderList:
-        with open(shader) as fh:
+        with open(shader) as sh:
             newFile = open(outputFile + "/" + shader, "w")
-            for line in fh:
+            for line in sh:
                 toWrite = line
                 if line.startswith("#include"):
-                    m = re.search(regex_word, line)
+                    m = re.search(regexWord, line)
                     module = m.group(1)
-                    line = moduleMap[module]
+                    line = modulesMap[module]
                 newFile.write(line)
             newFile.close()
-            fh.close()
+            sh.close()
