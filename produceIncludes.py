@@ -83,3 +83,4 @@ if __name__ == "__main__":
         for shader in shaderList:
             produce_new_shader(outputFolder, shader)
     print("New shaders produced successfully!")
+
