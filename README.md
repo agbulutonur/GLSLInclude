@@ -30,17 +30,19 @@ void main()
 
 Run the script with Python 3.
 
-`python3 produceShaders.py`
-
+```shell
+python3 reproduce_shaders.py
+```
 You can also specify paths for base, module and output. Default values are, `./` `./util` and `./output` respectively.
 
-`python3 produceShaders.py --base=base_path --module=module_path --output=output_path`
-
+```shell
+python3 reproduce_shaders.py --base=base_path --module=module_path --output=output_path
+```
 
 The final produced shadowVS.glsl will be following.
 
 Shader File: **output/shadow.glsl**
-```
+```glsl
 #version 330 core
 layout (location = 0) in vec3 position;
 
