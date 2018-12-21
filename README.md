@@ -1,5 +1,5 @@
 # GLSLInclude
-A simple Python script to support `#include` keyword on GLSL shaders
+A simple Python script to support `#include` keyword in GLSL shaders
 
 Just write your shader file with `#include` statement(s) and name of the module next to it. Then run this script. It will swap the `#include` statements with respective modules.
 ## How to Use
@@ -34,7 +34,7 @@ Run the script with Python 3.
 ```shell
 python3 reproduce_shaders.py
 ```
-You can also specify paths for base, module and output. Default values are, `./` `./util` and `./output` respectively.
+You can also specify paths for base, module and output folders. Default values are, `./` `./util` and `./output` respectively.
 
 ```shell
 python3 reproduce_shaders.py --base=base_path --module=module_path --output=output_path

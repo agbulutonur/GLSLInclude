@@ -82,5 +82,5 @@ if __name__ == "__main__":
         shaderList = [os.path.normpath(folder + '/' + f) for f in fList if f.endswith(".glsl")]
         for shader in shaderList:
             produce_new_shader(outputFolder, shader)
-    print("New shaders produced successfully!")
+    print("New shaders are produced successfully!")
 
