@@ -34,7 +34,7 @@ Run the script with Python 3.
 ```shell
 python3 reproduce_shaders.py
 ```
-You can also specify paths for base, module and output. Default values are, `./` `./util` and `./output` respectively.
+You can also specify paths for base, module and output folders. Default values are, `./` `./util` and `./output` respectively.
 
 ```shell
 python3 reproduce_shaders.py --base=base_path --module=module_path --output=output_path
