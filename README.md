@@ -1,7 +1,7 @@
 # GLSLInclude
 A simple Python script to support `#include` keyword on GLSL shaders
 
-Just write your shader file with `#include` statements and run this script. It will swap the include statements with respective modules.
+Just write your shader file with `#include` statement(s) and name of the module next to it. Then run this script. It will swap the `#include` statements with respective modules.
 
 Module Shader File: **fog.glsl**
 ```
@@ -19,7 +19,8 @@ layout (location = 0) in vec3 position;
 uniform mat4 model;
 uniform mat4 lightSpace;
 
-#include fog.glsl
+// module file extension is not needed
+#include fog 
 
 void main()
 {
