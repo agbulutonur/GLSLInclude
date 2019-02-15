@@ -1,4 +1,9 @@
 # GLSLInclude
+![alt text](https://img.shields.io/github/release/agbulutonur/GLSLInclude.svg "Logo Title Text 1")
+![alt text](https://img.shields.io/github/license/agbulutonur/GLSLInclude.svg "Logo Title Text 2")
+![alt text](https://img.shields.io/github/size/agbulutonur/GLSLInclude/reproduce_shaders.py.svg "Logo Title Text 3")
+![alt text](https://img.shields.io/github/last-commit/agbulutonur/GLSLInclude.svg "Logo Title Text 4")
+
 A simple Python script to support `#include` keyword in GLSL shaders
 
 Just write your shader file with `#include` statement(s) and name of the module next to it. Then run this script. It will swap the `#include` statements with respective modules.
